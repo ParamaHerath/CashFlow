@@ -3,6 +3,7 @@ package com.cashflow.backend.auth;
 import com.cashflow.backend.auth.dto.LoginRequest;
 import com.cashflow.backend.auth.dto.RegisterRequest;
 import com.cashflow.backend.auth.dto.UserProfile;
+import com.cashflow.backend.category.CategorySeeder;
 import com.cashflow.backend.common.exception.ConflictException;
 import com.cashflow.backend.common.exception.UnauthorizedException;
 import com.cashflow.backend.security.JwtService;
@@ -22,17 +23,20 @@ public class AuthService {
 	private final AuthenticationManager authenticationManager;
 	private final RefreshTokenService refreshTokenService;
 	private final JwtService jwtService;
+	private final CategorySeeder categorySeeder;
 
 	public AuthService(UserRepository userRepository,
 			PasswordEncoder passwordEncoder,
 			AuthenticationManager authenticationManager,
 			RefreshTokenService refreshTokenService,
-			JwtService jwtService) {
+			JwtService jwtService,
+			CategorySeeder categorySeeder) {
 		this.userRepository = userRepository;
 		this.passwordEncoder = passwordEncoder;
 		this.authenticationManager = authenticationManager;
 		this.refreshTokenService = refreshTokenService;
 		this.jwtService = jwtService;
+		this.categorySeeder = categorySeeder;
 	}
 
 	public AuthTokens register(RegisterRequest request) {
@@ -48,6 +52,7 @@ public class AuthService {
 		user.setRole(Role.USER);
 
 		User saved = userRepository.save(user);
+		categorySeeder.seedDefaults(saved);
 		return issueTokens(saved);
 	}
 
