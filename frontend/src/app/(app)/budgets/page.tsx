@@ -48,6 +48,7 @@ export default function BudgetsPage() {
 	}, [month]);
 
 	useEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect
 		loadBudgets();
 	}, [loadBudgets]);
 

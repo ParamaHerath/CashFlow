@@ -55,6 +55,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
 											<p className="text-sm text-muted-foreground">{item.copy}</p>
 										</div>
 									</div>
+								);
 							})}
 						</div>
 					</div>
