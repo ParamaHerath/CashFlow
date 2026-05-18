@@ -17,6 +17,8 @@ public interface TransactionRepository extends JpaRepository<Transaction, UUID>,
 
 	List<Transaction> findByUser_IdAndDateBetween(UUID userId, LocalDate from, LocalDate to);
 
+	boolean existsByUser_Id(UUID userId);
+
 	@Query("select t.category as category, coalesce(sum(t.amount), 0) as total "
 			+ "from Transaction t "
 			+ "where t.user.id = :userId and t.type = :type and t.date between :from and :to "
