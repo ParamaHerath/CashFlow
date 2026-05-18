@@ -74,8 +74,8 @@ export default function DashboardPage() {
 		}
 	}, []);
 
-	// eslint-disable-next-line react-hooks/set-state-in-effect
 	useEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect
 		loadDashboard();
 	}, [loadDashboard]);
 

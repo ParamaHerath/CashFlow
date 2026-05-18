@@ -10,8 +10,8 @@ export function ThemeToggle() {
 	const { theme, setTheme, systemTheme } = useTheme();
 	const [mounted, setMounted] = React.useState(false);
 
-	// eslint-disable-next-line react-hooks/set-state-in-effect
 	React.useEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setMounted(true);
 	}, []);
 
