@@ -157,7 +157,7 @@ export default function CategoriesPage() {
 								<div className="flex items-start justify-between">
 									<div className="flex items-center gap-3">
 										<div
-											className="flex h-12 w-12 items-center justify-center rounded-2xl text-white"
+											className="flex h-12 w-12 items-center justify-center rounded-full text-white"
 											style={{ backgroundColor: category.color }}
 										>
 											<Icon className="h-5 w-5" />

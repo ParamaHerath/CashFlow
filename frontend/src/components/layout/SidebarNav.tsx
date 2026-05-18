@@ -34,7 +34,7 @@ export function SidebarNav() {
 	return (
 		<aside className="hidden w-72 shrink-0 border-r border-border/60 bg-card/60 px-6 py-8 shadow-[0_20px_60px_-40px_hsl(var(--shadow-color)_/_0.5)] backdrop-blur lg:flex lg:flex-col">
 			<div className="flex items-center gap-3">
-				<div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-primary via-accent to-primary text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30">
+				<div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-primary via-accent to-primary text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30">
 					CF
 				</div>
 				<div>

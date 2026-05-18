@@ -143,7 +143,7 @@ export default function BudgetsPage() {
 					</p>
 				</div>
 				<div className="flex items-center gap-3">
-					<div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-500/15 text-rose-500">
+					<div className="flex h-12 w-12 items-center justify-center rounded-full bg-rose-500/15 text-rose-500">
 						<AlertTriangle size={18} />
 					</div>
 					<div>
