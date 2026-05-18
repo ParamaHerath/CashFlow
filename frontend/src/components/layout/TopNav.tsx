@@ -1,9 +1,15 @@
+"use client";
+
 import { Bell, Plus } from "lucide-react";
 
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Button } from "@/components/ui/button";
+import { useAuthStore } from "@/stores/authStore";
 
 export function TopNav() {
+	const user = useAuthStore((state) => state.user);
+	const firstName = user?.fullName?.split(" ")[0];
+
 	return (
 		<header className="sticky top-0 z-20 border-b border-border/60 bg-background/70 px-6 py-4 backdrop-blur">
 			<div className="flex items-center justify-between">
@@ -12,7 +18,7 @@ export function TopNav() {
 						Overview
 					</p>
 					<h1 className="font-display text-xl font-semibold">
-						Welcome back
+						Welcome back{firstName ? `, ${firstName}` : ""}!
 					</h1>
 				</div>
 				<div className="flex items-center gap-3">
