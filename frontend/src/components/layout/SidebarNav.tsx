@@ -67,12 +67,6 @@ export function SidebarNav() {
 					<LogOut className="h-4 w-4" />
 					<span>Logout</span>
 				</button>
-				<div className="rounded-3xl border border-border/60 bg-gradient-to-br from-background via-background to-muted/80 p-4 text-xs text-muted-foreground">
-					<p className="font-semibold text-foreground">CashFlow Beta</p>
-					<p className="mt-1">
-						Keep your money calm and clear. New insights land weekly.
-					</p>
-				</div>
 			</div>
 		</aside>
 	);
