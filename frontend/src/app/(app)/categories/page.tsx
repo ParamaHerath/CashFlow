@@ -44,6 +44,7 @@ export default function CategoriesPage() {
 		}
 	}, []);
 
+	// eslint-disable-next-line react-hooks/set-state-in-effect
 	useEffect(() => {
 		loadCategories();
 	}, [loadCategories]);

@@ -69,6 +69,7 @@ export default function AnalyticsPage() {
 		}
 	}, []);
 
+	// eslint-disable-next-line react-hooks/set-state-in-effect
 	useEffect(() => {
 		loadAnalytics();
 	}, [loadAnalytics]);

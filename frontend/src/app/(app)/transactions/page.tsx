@@ -75,6 +75,7 @@ export default function TransactionsPage() {
 		}
 	}, [page, filters]);
 
+	// eslint-disable-next-line react-hooks/set-state-in-effect
 	useEffect(() => {
 		loadTransactions();
 	}, [loadTransactions]);
