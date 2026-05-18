@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 220 38% 98%;
+  --foreground: 222 47% 11%;
+  --muted: 220 15% 92%;
+  --muted-foreground: 220 10% 40%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --border: 220 18% 90%;
+  --input: 220 18% 90%;
+  --primary: 212 78% 46%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 195 93% 46%;
+  --accent-foreground: 222 47% 11%;
+  --ring: 212 78% 46%;
+  --surface: 210 30% 96%;
+  --shadow-color: 220 25% 10%;
+  --radius: 1.25rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-ring: hsl(var(--ring));
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: 222 47% 8%;
+  --foreground: 210 40% 98%;
+  --muted: 223 18% 18%;
+  --muted-foreground: 215 20% 70%;
+  --card: 222 47% 10%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222 47% 9%;
+  --popover-foreground: 210 40% 98%;
+  --border: 220 18% 22%;
+  --input: 220 18% 22%;
+  --primary: 195 98% 52%;
+  --primary-foreground: 222 47% 10%;
+  --accent: 26 95% 60%;
+  --accent-foreground: 222 47% 10%;
+  --ring: 195 98% 52%;
+  --surface: 222 40% 12%;
+  --shadow-color: 220 15% 2%;
+}
+
+* {
+  border-color: hsl(var(--border));
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100%;
+  background-color: hsl(var(--background));
+  background-image:
+    radial-gradient(1200px circle at 10% -10%, hsl(var(--accent) / 0.15), transparent 60%),
+    radial-gradient(900px circle at 90% 10%, hsl(var(--primary) / 0.18), transparent 55%),
+    linear-gradient(180deg, hsl(var(--background)), hsl(var(--surface)) 60%);
+  background-attachment: fixed;
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: hsl(var(--primary) / 0.25);
 }
