@@ -18,7 +18,7 @@
   --ring: 212 78% 46%;
   --surface: 210 30% 96%;
   --shadow-color: 220 25% 10%;
-  --radius: 1.25rem;
+  --radius: 0.5rem;
 }
 
 @theme inline {
@@ -39,6 +39,13 @@
   --color-ring: hsl(var(--ring));
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
+  --radius-3xl: 0.75rem;
+  --radius-2xl: 0.5rem;
+  --radius-xl: 0.375rem;
+  --radius-lg: 0.25rem;
+  --radius-md: 0.1875rem;
+  --radius-sm: 0.125rem;
+  --radius: 0.5rem;
 }
 
 .dark {
@@ -68,10 +75,6 @@
 body {
   min-height: 100%;
   background-color: hsl(var(--background));
-  background-image:
-    radial-gradient(1200px circle at 10% -10%, hsl(var(--accent) / 0.15), transparent 60%),
-    radial-gradient(900px circle at 90% 10%, hsl(var(--primary) / 0.18), transparent 55%),
-    linear-gradient(180deg, hsl(var(--background)), hsl(var(--surface)) 60%);
   background-attachment: fixed;
   color: hsl(var(--foreground));
   font-family: var(--font-sans);

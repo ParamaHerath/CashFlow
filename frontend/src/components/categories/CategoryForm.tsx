@@ -75,7 +75,7 @@ export function CategoryForm({
 				</div>
 				<div className="flex items-end justify-center">
 					<div
-						className="flex h-11 w-11 items-center justify-center rounded-2xl"
+						className="flex h-11 w-11 items-center justify-center rounded-full"
 						style={{ backgroundColor: watch("color") }}
 					>
 						{SelectedIcon ? <SelectedIcon className="h-5 w-5 text-white" /> : null}

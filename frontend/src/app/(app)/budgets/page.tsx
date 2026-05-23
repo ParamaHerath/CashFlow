@@ -113,15 +113,7 @@ export default function BudgetsPage() {
 
 	return (
 		<div className="space-y-6">
-			<div className="flex flex-wrap items-center justify-between gap-4">
-				<div>
-					<p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-						Budgets
-					</p>
-					<h2 className="font-display text-2xl font-semibold">
-						Plan every month with intention
-					</h2>
-				</div>
+			<div className="flex flex-wrap items-center justify-end gap-4">
 				<Button onClick={openCreate}>
 					<Plus size={18} />
 					New budget
@@ -143,7 +135,7 @@ export default function BudgetsPage() {
 					</p>
 				</div>
 				<div className="flex items-center gap-3">
-					<div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-500/15 text-rose-500">
+					<div className="flex h-12 w-12 items-center justify-center rounded-full bg-rose-500/15 text-rose-500">
 						<AlertTriangle size={18} />
 					</div>
 					<div>

@@ -10,20 +10,11 @@ export default function ProfilePage() {
 
 	return (
 		<div className="space-y-6">
-			<div>
-				<p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-					Profile
-				</p>
-				<h2 className="font-display text-2xl font-semibold">
-					Your account
-				</h2>
-			</div>
-
 			<Card className="space-y-6">
 				{user ? (
 					<div className="space-y-4">
 						<div className="flex items-center gap-3">
-							<div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/15 text-primary">
+							<div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/15 text-primary">
 								<User size={20} />
 							</div>
 							<div>
@@ -32,7 +23,7 @@ export default function ProfilePage() {
 							</div>
 						</div>
 						<div className="flex items-center gap-3">
-							<div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/15 text-primary">
+							<div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/15 text-primary">
 								<Mail size={20} />
 							</div>
 							<div>
