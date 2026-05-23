@@ -87,11 +87,11 @@ export default function DashboardPage() {
 			return [];
 		}
 		return [
-			{ label: "Total balance", value: summary.totalBalance, accent: "text-primary" },
-			{ label: "Total income", value: summary.totalIncome, accent: "text-emerald-500" },
-			{ label: "Total expenses", value: summary.totalExpenses, accent: "text-rose-500" },
-			{ label: "Budget usage", value: summary.budgetUsagePercent, suffix: "%" },
-			{ label: "Savings", value: summary.savings, accent: "text-amber-500" },
+			{ label: "Total balance", value: summary.totalBalance, accent: "text-primary", bg: "bg-gradient-to-br from-blue-500/20 to-blue-500/10 border-none" },
+			{ label: "Total income", value: summary.totalIncome, accent: "text-emerald-500", bg: "bg-gradient-to-br from-emerald-500/20 to-emerald-500/10 border-none" },
+			{ label: "Total expenses", value: summary.totalExpenses, accent: "text-rose-500", bg: "bg-gradient-to-br from-rose-500/20 to-rose-500/10 border-none" },
+			{ label: "Budget usage", value: summary.budgetUsagePercent, suffix: "%", bg: "bg-gradient-to-br from-purple-500/20 to-purple-500/10 border-none" },
+			{ label: "Savings", value: summary.savings, accent: "text-amber-500", bg: "bg-gradient-to-br from-amber-500/20 to-amber-500/10 border-none" },
 		];
 	}, [summary]);
 
@@ -122,7 +122,7 @@ export default function DashboardPage() {
 						</Card>
 					))
 					: summaryCards.map((card) => (
-						<Card key={card.label} className="space-y-2">
+						<Card key={card.label} className={`space-y-2 ${card.bg}`}>
 							<p className="text-sm text-muted-foreground">{card.label}</p>
 							<p className={`font-display text-2xl font-semibold ${card.accent ?? ""}`}>
 								{card.suffix
@@ -198,10 +198,13 @@ export default function DashboardPage() {
 							))
 							: recent.map((transaction) => {
 									const isIncome = transaction.type === "INCOME";
+									const bgClass = isIncome
+										? "bg-gradient-to-br from-emerald-500/20 to-emerald-500/10 border-none"
+										: "bg-gradient-to-br from-rose-500/20 to-rose-500/10 border-none";
 									return (
 										<div
 											key={transaction.id}
-											className="flex items-center justify-between rounded-2xl border border-border/60 bg-card/60 px-4 py-3"
+											className={`flex items-center justify-between rounded-2xl px-4 py-3 ${bgClass}`}
 										>
 											<div>
 												<p className="font-medium">{transaction.title}</p>

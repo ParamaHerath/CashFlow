@@ -75,10 +75,6 @@
 body {
   min-height: 100%;
   background-color: hsl(var(--background));
-  background-image:
-    radial-gradient(1200px circle at 10% -10%, hsl(var(--accent) / 0.15), transparent 60%),
-    radial-gradient(900px circle at 90% 10%, hsl(var(--primary) / 0.18), transparent 55%),
-    linear-gradient(180deg, hsl(var(--background)), hsl(var(--surface)) 60%);
   background-attachment: fixed;
   color: hsl(var(--foreground));
   font-family: var(--font-sans);

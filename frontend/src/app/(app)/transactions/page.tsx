@@ -236,8 +236,11 @@ export default function TransactionsPage() {
 				) : data && data.items.length > 0 ? (
 					data.items.map((transaction) => {
 						const isIncome = transaction.type === "INCOME";
+						const bgClass = isIncome
+							? "bg-gradient-to-br from-emerald-500/20 to-emerald-500/10 border-none"
+							: "bg-gradient-to-br from-rose-500/20 to-rose-500/10 border-none";
 						return (
-							<Card key={transaction.id} className="flex flex-col gap-3">
+							<Card key={transaction.id} className={`flex flex-col gap-3 ${bgClass}`}>
 								<div className="flex items-start justify-between">
 									<div>
 										<p className="font-semibold text-foreground">
