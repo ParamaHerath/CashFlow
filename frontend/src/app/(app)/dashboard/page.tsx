@@ -95,14 +95,18 @@ export default function DashboardPage() {
 		];
 	}, [summary]);
 
+	const getGreeting = () => {
+		const hour = new Date().getHours();
+		if (hour < 12) return "Good morning";
+		if (hour < 17) return "Good afternoon";
+		return "Good evening";
+	};
+
 	return (
 		<div className="space-y-6">
 			<div>
-				<p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-					Overview
-				</p>
 				<h2 className="font-display text-3xl font-bold tracking-tight">
-					Welcome back{firstName ? `, ${firstName}` : ""}!
+					{getGreeting()}{firstName ? `, ${firstName}` : ""}!
 				</h2>
 				<p className="text-sm text-muted-foreground mt-1">
 					Here's what's happening with your cash flow today.

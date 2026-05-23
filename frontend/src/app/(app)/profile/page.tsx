@@ -10,15 +10,6 @@ export default function ProfilePage() {
 
 	return (
 		<div className="space-y-6">
-			<div>
-				<p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-					Profile
-				</p>
-				<h2 className="font-display text-2xl font-semibold">
-					Your account
-				</h2>
-			</div>
-
 			<Card className="space-y-6">
 				{user ? (
 					<div className="space-y-4">

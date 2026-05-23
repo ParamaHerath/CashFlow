@@ -88,15 +88,6 @@ export default function AnalyticsPage() {
 
 	return (
 		<div className="space-y-6">
-			<div>
-				<p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-					Analytics
-				</p>
-				<h2 className="font-display text-2xl font-semibold">
-					A deeper look at your cash flow
-				</h2>
-			</div>
-
 			<div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
 				{isLoading
 					? Array.from({ length: 4 }).map((_, index) => (

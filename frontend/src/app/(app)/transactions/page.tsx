@@ -143,15 +143,7 @@ export default function TransactionsPage() {
 
 	return (
 		<div className="space-y-6">
-			<div className="flex flex-wrap items-center justify-between gap-4">
-				<div>
-					<p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-						Transactions
-					</p>
-					<h2 className="font-display text-2xl font-semibold">
-						Keep every move accounted
-					</h2>
-				</div>
+			<div className="flex flex-wrap items-center justify-end gap-4">
 				<Button onClick={openCreate}>
 					<Plus size={18} />
 					Add transaction

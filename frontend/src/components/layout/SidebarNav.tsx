@@ -59,9 +59,9 @@ export function SidebarNav() {
 							<Link
 								key={item.label}
 								href={item.href}
-								className={`group flex items-center gap-3.5 px-3.5 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+								className={`group flex items-center gap-3.5 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
 									isActive
-										? "bg-primary text-primary-foreground shadow-md shadow-primary/25 font-semibold"
+										? "bg-primary/15 text-primary font-semibold"
 										: "text-muted-foreground hover:bg-muted/75 hover:text-foreground"
 								}`}
 							>
@@ -77,7 +77,7 @@ export function SidebarNav() {
 				{/* Logout Button */}
 				<button
 					onClick={handleLogout}
-					className="group mt-auto mb-6 flex items-center gap-3.5 px-3.5 py-2 mx-3 rounded-xl text-sm font-medium text-muted-foreground transition duration-200 hover:bg-red-500/10 hover:text-red-500 cursor-pointer"
+					className="group mt-auto mb-6 flex items-center gap-3.5 px-3 py-2.5 mx-3 rounded-xl text-sm font-medium text-muted-foreground transition duration-200 hover:bg-red-500/10 hover:text-red-500 cursor-pointer"
 				>
 					<LogOut className="h-[18px] w-[18px] shrink-0 transition-transform duration-200 group-hover:scale-105" />
 					<span className="transition-all duration-300 opacity-0 group-hover/sidebar:opacity-100 w-0 group-hover/sidebar:w-40 overflow-hidden whitespace-nowrap">
