@@ -26,6 +26,7 @@ import {
 	fetchWeeklySpending,
 } from "@/lib/analytics";
 import { fetchTransactions } from "@/lib/transactions";
+import { useAuthStore } from "@/stores/authStore";
 import type {
 	AnalyticsSummary,
 	CategoryBreakdown,
@@ -44,6 +45,8 @@ const COLORS = [
 ];
 
 export default function DashboardPage() {
+	const user = useAuthStore((state) => state.user);
+	const firstName = user?.fullName?.split(" ")[0];
 	const [summary, setSummary] = useState<AnalyticsSummary | null>(null);
 	const [monthlyBalance, setMonthlyBalance] = useState<MonthlyBalancePoint[]>([]);
 	const [weeklySpending, setWeeklySpending] = useState<WeeklySpendingPoint[]>([]);
@@ -96,11 +99,14 @@ export default function DashboardPage() {
 		<div className="space-y-6">
 			<div>
 				<p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-					Dashboard
+					Overview
 				</p>
-				<h2 className="font-display text-2xl font-semibold">
-					CashFlow overview
+				<h2 className="font-display text-3xl font-bold tracking-tight">
+					Welcome back{firstName ? `, ${firstName}` : ""}!
 				</h2>
+				<p className="text-sm text-muted-foreground mt-1">
+					Here's what's happening with your cash flow today.
+				</p>
 			</div>
 
 			<div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
