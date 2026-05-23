@@ -11,6 +11,7 @@ import {
 	Tags,
 	Wallet,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { useAuthStore } from "@/stores/authStore";
 
 const navItems = [
@@ -21,6 +22,11 @@ const navItems = [
 	{ label: "Analytics", href: "/analytics", icon: PieChart },
 	{ label: "Settings", href: "/settings", icon: Settings },
 ];
+
+const sidebarItemClass =
+	"group flex h-10 w-10 items-center justify-start gap-0 rounded-xl px-0 pl-[11px] text-sm font-medium transition-[background-color,color,width,padding,gap] duration-200 group-hover/sidebar:w-[16.5rem] group-hover/sidebar:gap-3.5 group-hover/sidebar:px-3";
+const sidebarLabelClass =
+	"max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-[max-width,opacity] duration-300 group-hover/sidebar:max-w-40 group-hover/sidebar:opacity-100";
 
 export function SidebarNav() {
 	const logout = useAuthStore((state) => state.logout);
@@ -59,31 +65,31 @@ export function SidebarNav() {
 							<Link
 								key={item.label}
 								href={item.href}
-								className={`group flex items-center gap-3.5 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+								className={cn(
+									sidebarItemClass,
 									isActive
 										? "bg-primary/15 text-primary font-semibold"
-										: "text-muted-foreground hover:bg-muted/75 hover:text-foreground"
-								}`}
+										: "text-muted-foreground hover:bg-muted/75 hover:text-foreground",
+								)}
 							>
 								<Icon className="h-[18px] w-[18px] shrink-0 transition-transform duration-200 group-hover:scale-105" />
-								<span className="transition-all duration-300 opacity-0 group-hover/sidebar:opacity-100 w-0 group-hover/sidebar:w-40 overflow-hidden whitespace-nowrap">
-									{item.label}
-								</span>
+								<span className={sidebarLabelClass}>{item.label}</span>
 							</Link>
 						);
 					})}
-				</nav>
 
-				{/* Logout Button */}
-				<button
-					onClick={handleLogout}
-					className="group mt-auto mb-6 flex items-center gap-3.5 px-3 py-2.5 mx-3 rounded-xl text-sm font-medium text-muted-foreground transition duration-200 hover:bg-red-500/10 hover:text-red-500 cursor-pointer"
-				>
-					<LogOut className="h-[18px] w-[18px] shrink-0 transition-transform duration-200 group-hover:scale-105" />
-					<span className="transition-all duration-300 opacity-0 group-hover/sidebar:opacity-100 w-0 group-hover/sidebar:w-40 overflow-hidden whitespace-nowrap">
-						Logout
-					</span>
-				</button>
+					{/* Logout Button */}
+					<button
+						onClick={handleLogout}
+						className={cn(
+							sidebarItemClass,
+							"mt-auto mb-6 text-muted-foreground hover:bg-red-500/10 hover:text-red-500",
+						)}
+					>
+						<LogOut className="h-[18px] w-[18px] shrink-0 transition-transform duration-200 group-hover:scale-105" />
+						<span className={sidebarLabelClass}>Logout</span>
+					</button>
+				</nav>
 			</aside>
 		</div>
 	);
