@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, Suspense } from "react";
+import { Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -24,13 +24,7 @@ function LoginForm() {
 	const router = useRouter();
 	const params = useSearchParams();
 	const nextPath = params.get("next") ?? "/dashboard";
-	const { login, isLoading, user, hasBootstrapped } = useAuthStore();
-
-	useEffect(() => {
-		if (hasBootstrapped && user) {
-			router.replace(nextPath);
-		}
-	}, [hasBootstrapped, user, router, nextPath]);
+	const { login, isLoading } = useAuthStore();
 
 	const {
 		register,

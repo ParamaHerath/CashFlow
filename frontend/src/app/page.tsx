@@ -1,14 +1,9 @@
-"use client";
-
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { useAuthStore } from "@/stores/authStore";
 
 const highlights = [
   {
@@ -26,15 +21,6 @@ const highlights = [
 ];
 
 export default function Home() {
-  const { user, hasBootstrapped } = useAuthStore();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (hasBootstrapped && user) {
-      router.replace("/dashboard");
-    }
-  }, [hasBootstrapped, user, router]);
-
   return (
     <div className="relative overflow-hidden">
       <div className="absolute inset-0 -z-10">

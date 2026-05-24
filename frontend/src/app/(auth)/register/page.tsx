@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,13 +22,7 @@ type FormValues = z.infer<typeof schema>;
 
 export default function RegisterPage() {
 	const router = useRouter();
-	const { register: registerUser, isLoading, user, hasBootstrapped } = useAuthStore();
-
-	useEffect(() => {
-		if (hasBootstrapped && user) {
-			router.replace("/dashboard");
-		}
-	}, [hasBootstrapped, user, router]);
+	const { register: registerUser, isLoading } = useAuthStore();
 
 	const {
 		register,
