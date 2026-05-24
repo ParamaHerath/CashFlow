@@ -26,6 +26,13 @@ import {
 	fetchWeeklySpending,
 } from "@/lib/analytics";
 import { fetchTransactions } from "@/lib/transactions";
+import {
+	formatMonthAxis,
+	formatMonthTooltip,
+	formatTransactionDate,
+	formatWeeklyAxisDate,
+	formatChartTooltipDate,
+} from "@/lib/dates";
 import { useAuthStore } from "@/stores/authStore";
 import type {
 	AnalyticsSummary,
@@ -139,9 +146,9 @@ export default function DashboardPage() {
 					<div className="h-64">
 						<ResponsiveContainer width="100%" height="100%">
 							<LineChart data={monthlyBalance}>
-								<XAxis dataKey="month" stroke="#94A3B8" />
+								<XAxis dataKey="month" stroke="#94A3B8" tickFormatter={formatMonthAxis} />
 								<YAxis stroke="#94A3B8" />
-								<Tooltip />
+								<Tooltip labelFormatter={formatMonthTooltip} />
 								<Line type="monotone" dataKey="net" stroke="#2563EB" />
 								<Line type="monotone" dataKey="income" stroke="#10B981" />
 								<Line type="monotone" dataKey="expense" stroke="#F97316" />
@@ -154,9 +161,9 @@ export default function DashboardPage() {
 					<div className="h-64">
 						<ResponsiveContainer width="100%" height="100%">
 							<BarChart data={weeklySpending}>
-								<XAxis dataKey="date" stroke="#94A3B8" />
+								<XAxis dataKey="date" stroke="#94A3B8" tickFormatter={formatWeeklyAxisDate} />
 								<YAxis stroke="#94A3B8" />
-								<Tooltip />
+								<Tooltip labelFormatter={formatChartTooltipDate} />
 								<Bar dataKey="expense" fill="#F97316" radius={[8, 8, 0, 0]} />
 							</BarChart>
 						</ResponsiveContainer>
@@ -209,7 +216,7 @@ export default function DashboardPage() {
 											<div>
 												<p className="font-medium">{transaction.title}</p>
 												<p className="text-xs text-muted-foreground">
-													{transaction.category} • {transaction.date}
+													{transaction.category} • {formatTransactionDate(transaction.date)}
 												</p>
 											</div>
 											<div className="flex items-center gap-2 text-sm font-semibold">

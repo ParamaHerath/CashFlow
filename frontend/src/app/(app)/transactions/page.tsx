@@ -31,6 +31,7 @@ import {
 	updateTransaction,
 } from "@/lib/transactions";
 import type { Transaction, TransactionPage, TransactionType } from "@/types/transactions";
+import { formatTransactionDate } from "@/lib/dates";
 
 const PAGE_SIZE = 8;
 
@@ -247,7 +248,7 @@ export default function TransactionsPage() {
 											{transaction.title}
 										</p>
 										<p className="text-sm text-muted-foreground">
-											{transaction.category} • {transaction.date}
+											{transaction.category} • {formatTransactionDate(transaction.date)}
 										</p>
 									</div>
 									<div className="flex items-center gap-2">

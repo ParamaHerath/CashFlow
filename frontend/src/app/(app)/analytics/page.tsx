@@ -31,6 +31,12 @@ import type {
 	MonthlyBalancePoint,
 	WeeklySpendingPoint,
 } from "@/types/analytics";
+import {
+	formatMonthAxis,
+	formatMonthTooltip,
+	formatWeeklyAxisDate,
+	formatChartTooltipDate,
+} from "@/lib/dates";
 
 const COLORS = [
 	"#2563EB",
@@ -114,9 +120,9 @@ export default function AnalyticsPage() {
 					<div className="h-64">
 						<ResponsiveContainer width="100%" height="100%">
 							<LineChart data={monthlyBalance}>
-								<XAxis dataKey="month" stroke="#94A3B8" />
+								<XAxis dataKey="month" stroke="#94A3B8" tickFormatter={formatMonthAxis} />
 								<YAxis stroke="#94A3B8" />
-								<Tooltip />
+								<Tooltip labelFormatter={formatMonthTooltip} />
 								<Legend />
 								<Line type="monotone" dataKey="income" stroke="#10B981" />
 								<Line type="monotone" dataKey="expense" stroke="#F97316" />
@@ -130,9 +136,9 @@ export default function AnalyticsPage() {
 					<div className="h-64">
 						<ResponsiveContainer width="100%" height="100%">
 							<BarChart data={weeklySpending}>
-								<XAxis dataKey="date" stroke="#94A3B8" />
+								<XAxis dataKey="date" stroke="#94A3B8" tickFormatter={formatWeeklyAxisDate} />
 								<YAxis stroke="#94A3B8" />
-								<Tooltip />
+								<Tooltip labelFormatter={formatChartTooltipDate} />
 								<Bar dataKey="expense" fill="#F97316" radius={[8, 8, 0, 0]} />
 							</BarChart>
 						</ResponsiveContainer>
