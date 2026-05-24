@@ -143,15 +143,7 @@ export default function TransactionsPage() {
 
 	return (
 		<div className="space-y-6">
-			<div className="flex flex-wrap items-center justify-between gap-4">
-				<div>
-					<p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-						Transactions
-					</p>
-					<h2 className="font-display text-2xl font-semibold">
-						Keep every move accounted
-					</h2>
-				</div>
+			<div className="flex flex-wrap items-center justify-end gap-4">
 				<Button onClick={openCreate}>
 					<Plus size={18} />
 					Add transaction
@@ -244,8 +236,11 @@ export default function TransactionsPage() {
 				) : data && data.items.length > 0 ? (
 					data.items.map((transaction) => {
 						const isIncome = transaction.type === "INCOME";
+						const bgClass = isIncome
+							? "bg-gradient-to-br from-emerald-500/20 to-emerald-500/10 border-none"
+							: "bg-gradient-to-br from-rose-500/20 to-rose-500/10 border-none";
 						return (
-							<Card key={transaction.id} className="flex flex-col gap-3">
+							<Card key={transaction.id} className={`flex flex-col gap-3 ${bgClass}`}>
 								<div className="flex items-start justify-between">
 									<div>
 										<p className="font-semibold text-foreground">

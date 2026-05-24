@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -20,17 +20,11 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>;
 
-export default function LoginPage() {
+function LoginForm() {
 	const router = useRouter();
 	const params = useSearchParams();
 	const nextPath = params.get("next") ?? "/dashboard";
-	const { login, isLoading, user, hasBootstrapped } = useAuthStore();
-
-	useEffect(() => {
-		if (hasBootstrapped && user) {
-			router.replace(nextPath);
-		}
-	}, [hasBootstrapped, user, router, nextPath]);
+	const { login, isLoading } = useAuthStore();
 
 	const {
 		register,
@@ -95,3 +89,17 @@ export default function LoginPage() {
 		</Card>
 	);
 }
+
+export default function LoginPage() {
+	return (
+		<Suspense fallback={
+			<Card className="w-full max-w-md space-y-6 border border-border/60 bg-card/80 p-8 flex flex-col items-center justify-center min-h-[350px]">
+				<div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+				<p className="text-sm text-muted-foreground mt-4">Loading authorization...</p>
+			</Card>
+		}>
+			<LoginForm />
+		</Suspense>
+	);
+}
+

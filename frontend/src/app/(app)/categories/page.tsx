@@ -107,15 +107,7 @@ export default function CategoriesPage() {
 
 	return (
 		<div className="space-y-6">
-			<div className="flex flex-wrap items-center justify-between gap-4">
-				<div>
-					<p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-						Categories
-					</p>
-					<h2 className="font-display text-2xl font-semibold">
-						Your spending DNA
-					</h2>
-				</div>
+			<div className="flex flex-wrap items-center justify-end gap-4">
 				<Button onClick={openCreate}>
 					<Plus size={18} />
 					New category
@@ -153,11 +145,15 @@ export default function CategoriesPage() {
 					filtered.map((category) => {
 						const Icon = resolveCategoryIcon(category.icon);
 						return (
-							<Card key={category.id} className="space-y-4">
+							<Card 
+								key={category.id} 
+								className="space-y-4 border-none"
+								style={{ background: `linear-gradient(135deg, ${category.color}33, ${category.color}1A)` }}
+							>
 								<div className="flex items-start justify-between">
 									<div className="flex items-center gap-3">
 										<div
-											className="flex h-12 w-12 items-center justify-center rounded-2xl text-white"
+											className="flex h-12 w-12 items-center justify-center rounded-full text-white"
 											style={{ backgroundColor: category.color }}
 										>
 											<Icon className="h-5 w-5" />
@@ -193,7 +189,7 @@ export default function CategoriesPage() {
 										<span>Expense share</span>
 										<span>{category.expenseShare.toFixed(2)}%</span>
 									</div>
-									<div className="mt-2 h-2 rounded-full bg-muted/70">
+									<div className="mt-2 h-2 rounded-full bg-white/70">
 										<div
 											className="h-full rounded-full"
 											style={{

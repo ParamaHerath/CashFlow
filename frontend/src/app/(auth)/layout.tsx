@@ -31,7 +31,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
 				<div className="hidden flex-col justify-between border-r border-border/60 bg-card/50 p-12 lg:flex">
 					<div>
 						<div className="flex items-center gap-3">
-							<div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary via-accent to-primary text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30">
+							<div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary via-accent to-primary text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30">
 								CF
 							</div>
 							<div>
@@ -47,7 +47,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
 								const Icon = item.icon;
 								return (
 									<div key={item.title} className="flex gap-4">
-										<div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-muted/70 text-foreground">
+										<div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted/70 text-foreground">
 											<Icon size={18} />
 										</div>
 										<div>
